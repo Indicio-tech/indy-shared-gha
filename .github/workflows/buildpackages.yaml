@@ -91,7 +91,9 @@ jobs:
         run: |
           # Installation of pip==23.0.1 is a workaround for the deprecated --install-option flag
           # used in plenum's setup.py to install pyzmq==22.3.0.
-          python3 -m pip install --ignore-installed --upgrade pip==23.0.1
+          # python3 -m pip install --ignore-installed --upgrade pip==23.0.1
+          curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+          python3 get-pip.py --force-reinstall "pip==23.0.1"
 
           python3 -m pip install pytest-runner wheel
 
