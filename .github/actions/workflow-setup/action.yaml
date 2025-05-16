@@ -49,13 +49,13 @@ runs:
         echo "distribution=jammy" >> $GITHUB_OUTPUT
 
         echo "::group::DEBUG"        # Ensure publishing is only performed when the build is executed from the main organization.
-        if [[ ${{ github.repository_owner }} == '${{ inputs.ownerRepo }}' ]]; then
+        #if [[ ${{ github.repository_owner }} == '${{ inputs.ownerRepo }}' ]]; then
           echo "publish=true" >> $GITHUB_OUTPUT
           echo "publish = true"
-        else
-          echo "publish=false" >> $GITHUB_OUTPUT
-          echo "publish = false"
-        fi
+        #else
+        #  echo "publish=false" >> $GITHUB_OUTPUT
+        #  echo "publish = false"
+        #fi
         echo "CACHE_KEY_BUILD=${{ hashFiles('.github/workflows/build/Dockerfile.ubuntu-2204') }}"
         echo "UBUNTU_VERSION=ubuntu-2204"
         echo "distribution=jammy"
