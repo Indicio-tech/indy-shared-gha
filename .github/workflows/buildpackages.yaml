@@ -142,7 +142,8 @@ jobs:
         run: |
           mkdir -p $GITHUB_WORKSPACE/build-scripts/${{ inputs.UBUNTU_VERSION }}/cache/3rd-party-dependencies/
           $GITHUB_WORKSPACE/build-scripts/${{ inputs.UBUNTU_VERSION }}/build-3rd-parties.sh ./cache/3rd-party-dependencies
-          mv $GITHUB_WORKSPACE/build-scripts/${{ inputs.UBUNTU_VERSION }}/cache/* /tmp/third-party-dependencies
+          mkdir -p /tmp/third-party-dependencies
+          mv -v $GITHUB_WORKSPACE/build-scripts/${{ inputs.UBUNTU_VERSION }}/cache/* /tmp/third-party-dependencies
 
       - uses: actions/upload-artifact@v4
         with:
